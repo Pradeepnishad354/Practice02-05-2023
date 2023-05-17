@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+     crossorigin="anonymous">
+</head>
+<body>
+
+		<div class="card mr-3">
+			<div class="card-body">
+
+				<h1 class="text-center">All  Staff list</h1>
+				
+
+				<table class="table">
+					<thead>
+						<tr>
+							<!--  <th scope="col">#Id</th>  -->
+							<th scope="col">Id</th>
+							<th scope="col">Name</th>
+							<th scope="col">Email</th>
+							<th scope="col">phone</th>
+							<th scope="col">AvailableDays</th>
+							<th scope="col">Time</th>
+							<th scope="col">Action</th>
+							
+						
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="s :  ${staff}">
+							
+							 <td>
+							 <span th:text="${s.id}"></span></td>
+                     <td><span th:text="${s.name}"></span></td>
+ 
+                     <td><span th:text="${s.email}"></span></td>
+							<td>	
+							 <span th:text="${s.phone}"></span>
+							</td>
+							
+							<td><span th:text="${s.availableDays}"></span></td>
+                             
+                             <td><span th:text="${s.time}"></span></td>
+		
+						 <td> <a th:href="@{/update/{id}(id=${s.id})}"
+								class="btn btn-primary">Edit</a>
+								 
+							 <a	th:href="@{/delete/{id}(id=${s.id})}"
+								class="btn btn-danger">Delete</a>  
+							
+							
+							
+				
+							</td>	
+					
+
+						</tr>
+						<a style="color:red" th:href=@{/signup/}>AddStaff</a>
+
+					</tbody>
+
+
+				</table>
+			</div> 
+		</div>
+			
+			
+			
+			
+			</body>
+			</html>

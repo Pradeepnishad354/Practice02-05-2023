@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymelef.org" 
+th:replace="normal\base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<section>
+
+<div class="card mr-3">
+<div class="card-body">
+
+<h1 class="text-center" >Customer Orders</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#Id</th>
+      <th scope="col">CustomerName</th>
+      <th scope="col">CustomerAddress</th>
+      <th scope="col">CustomerPhone</th>
+      
+       <th scope="col">CustomerFoodItems</th>
+        <th scope="col">Price</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="o : ${orders}">
+      <th scope="row" th:text="${o.id}">1</th>
+      <td>
+      
+      <span th:text="${o.customerName}"></span></td>
+      
+      <td >
+     
+      <span th:text="${o.customerAddress}"></span>
+      
+      </td>
+      
+      <td th:text="${o.phone}"></td>
+      
+      <td th:text="${o.foodItems}"></td>
+      <td th:text="${o.price}"></td>
+      
+     
+    
+    
+      
+    </tr>
+    
+  </tbody>
+</table>
+
+</div>
+
+</div>
+
+</section>
+	
+</body>
+</html>

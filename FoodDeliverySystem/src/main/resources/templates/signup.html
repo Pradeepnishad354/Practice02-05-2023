@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymelef.org" 
+th:replace="base::layout(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<section>
+<div class="container">
+<div class="row">
+<div class="col-md-8 offset-md-2">
+<div class="my-card"></div>
+<div th:if="${session.message}" class="alert alert-primary" th:classappend="${session.message.type}" role="alert">
+<p class="text-center" th:text="${session.message.content}"></p>
+
+<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+</div>
+<h1>Here Add the Staff</h1>
+<form th:action="@{/do_register}" method="post">
+  <div class="mb-3">
+    <label for="name" class="form-label">Enter Staff name</label>
+    <input type="text" class="form-control" name="name" id="name" required="required" >
+  </div>
+  
+  <div class="mb-3">
+    <label for="email" class="form-label">Enter your Email</label>
+    <input type="text" class="form-control" name="email" id="days" >
+  </div>
+  
+  <div class="mb-3">
+    <label for="phone" class="form-label">Enter Staff Phone</label>
+    <input type="text" class="form-control" name="phone" id="phone" required="required" >
+  </div>
+  
+  <div class="mb-3">
+    <label for="phone" class="form-label">Enter Staff Password</label>
+    <input type="password" class="form-control" name="password" id="password" required="required" >
+  </div>
+  
+  <div class="mb-3">
+    <label for="days" class="form-label">Enter your AvailableDays</label>
+    <input type="text" class="form-control" name="availableDays" id="days" >
+  </div>
+  
+  <div class="mb-3">
+    <label for="time" class="form-label">Enter Staff time</label>
+    <input type="text" class="form-control" name="time" id="time" >
+  </div>
+  
+  
+ <!--  <a th:href="@{/get}" class="btn btn-primary">GetAllStaff</a> -->
+
+  
+  <!-- terms and condition  -->
+  <div class="form-group from-check text-center">
+  <input type="checkbox" 
+  name="agreement"
+  class="form-check-input"
+  id="agreement"
+  
+  />
+  <label for="agreement">Accepts term and conditon </label>
+  
+  <div class="container text-center">
+ <button type="submit" class=" btn-primary">
+ Submit
+ </button>
+ <button type="reset" class=" btn-warning">
+ Reset
+ </button>
+  </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+
+</section>
+	
+</body>
+</html>
