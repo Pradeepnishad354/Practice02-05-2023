@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="login" class="com.test.Login">
+			<result name="valid">welcome.jsp</result>
+			<result name="invalid">error.jsp</result>
+		</action>
+		
+		<action name="register" class="com.test.Register" method="register">
+			<result name="success">index.jsp</result>
+			<result name="fail">error.jsp</result>
+		</action>
+		
+		<action name="add" class="com.demo.AddStudent" method="add">
+			<result name="success">welcome.jsp</result>
+			<result name="fail">error.jsp</result>
+		</action>
+		
+		
+		<action name="student" class="com.demo.ReportAction">
+			<result name="success">stu_list.jsp</result>
+		</action>
+		
+		<action name="deleteStudent" class="com.demo.DeleteStudent" method="delete">
+			<result name="success" type="redirect">student</result>
+		</action>
+		
+		
+		
+		
+		<action name="update" class="com.demo.Update">
+   <result name="success">update_student.jsp</result>
+		</action>
+		
+		
+ 		<action name="updates" class="com.demo.Updates">
+ <result name="success">usuccess.jsp</result>
+ <result name="error">error.jsp</result>
+          </action>
+		
+		
+	</package>
+
+</struts>
